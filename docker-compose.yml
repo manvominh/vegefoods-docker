@@ -9,7 +9,7 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
         - ACCEPT_EULA=Y
-        - SA_PASSWORD=1qazZAQ!
+        - MSSQL_SA_PASSWORD=1qazZAQ!
     networks:
         - backend
     ports:
@@ -20,13 +20,13 @@ services:
     build:
       context: .
       dockerfile: Vegefoods.API/Dockerfile
-    extra_hosts:
-      - host.docker.internal:host-gateway
     networks:
        - backend
     ports:
-        - 8002:80   
+        - 5296:8080
+    depends_on:
+        - vegefoodsdb
     environment:
-        - DB_HOST=host.docker.internal
+        - DB_HOST=vegefoodsdb
         - DB_NAME=vegefoods
         - DB_SA_PASSWORD=1qazZAQ!
