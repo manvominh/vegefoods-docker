@@ -1,5 +1,5 @@
 # Vegefoods
-This is demo web application that is publish on hub docker using ASP.Net Core Web API, Entity Framework, Microsoft SQL Server, Memory Cache, MediatR + CQRS pattern and Clean Architecture in backend.
+This is demo web application that is publish on hub docker, using docker-compose to populate Vegefoods Web API.
 ## Steps to build the docker:
 1. Clone or download the Vegefoods-docker repository on github.
 2. Go to docker-compose-yml folder
