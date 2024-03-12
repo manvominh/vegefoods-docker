@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  vegefoodsdb:
+    container_name: vegefoods-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=1qazZAQ!
+    networks:
+        - backend
+    ports:
+        - 8001:1433
+  vegefoods.api:
+    container_name: vegefoods-api
+    image: vominhman/vegefoodsapi
+    networks:
+       - backend
+    ports:
+        - 5296:8080
+    depends_on:
+        - vegefoodsdb
+    environment:
+        - DB_HOST=vegefoodsdb
+        - DB_NAME=vegefoods
+        - DB_SA_PASSWORD=1qazZAQ!
