@@ -26,3 +26,7 @@ Vegefoods Web application is published to hub docker and can be used images by c
 
 ![image](https://github.com/manvominh/vegefoods-docker/assets/133474782/85a936fc-df79-465a-9635-6539be88cc99)
 
+## The difference between docker compose files in code solution and deployed docker compose file:
+
+![image](https://github.com/manvominh/vegefoods-docker/assets/133474782/472d0dec-52c6-4892-9d07-db19938a6589)
+
