@@ -14,15 +14,17 @@ Vegefoods Web application is published to hub docker and can be used images by c
 1. Clone or download the Vegefoods-docker repository on github.
 2. Go to docker-compose-yml folder
 3. Open command line or others tool to run docker command: docker-compose up -d  ( run on environment that already have installed docker + docker compose)
-4. Currently using port 5269 for WebApi and port 8001 for MS SQL Server, can change the port in docker-compose-yml file. Run the url: http://localhost:5296/swagger/index.html to populate the Swagger UI
-5. For reference to publish a vegefoodsapi docker image, please use the Vegefoods_Docker source code to publish.
+4. Currently using port 5269 for WebApi and port 8001 for MS SQL Server, can change the port in docker-compose-yml file.
+5. Run the url: http://localhost:5296/swagger/index.html to populate the Swagger UI
+6. For reference to publish a vegefoodsapi docker image, please use the Vegefoods_Docker source code to publish: Vegefoods_Docker\Vegefoods.API folder on github
 
    ![image](https://github.com/manvominh/Vegefoods/assets/133474782/a1a96859-afbd-41c2-93f3-18e5cba4811a)
    
 ### ReactJS Front-End:
 1. Pull Vegefood ReactJS Front-End docker: docker pull vominhman/vegefoods.reactui:latest
 2. Run Vegefood ReactJS Front-End docker: docker run -d -p 3030:80 --name vegefoods-reactui-container vominhman/vegefoods.reactui
-3. run Vegefoods ReactJS: http://localhost:3030
+3. For reference to publish a vegefoods ReactJS UI, please use source code at folder Vegefoods_Docker\vegefoods.reactui on github
+4. run Vegefoods ReactJS: http://localhost:3030
 
 ![image](https://github.com/manvominh/vegefoods-docker/assets/133474782/85a936fc-df79-465a-9635-6539be88cc99)
 
