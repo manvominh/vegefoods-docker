@@ -7,7 +7,7 @@ Vegefoods Web application is published to hub docker and can be used images by c
   
   ![image](https://github.com/manvominh/vegefoods-docker/assets/133474782/a20a7877-2328-411e-b276-a97318e367a5)
 
-## Steps to build the docker images:
+## Steps to build the Vegefoods docker images:
 - use port 5269 for Web API + port 8001 for MS SQL Server -> both these ports can change in docker-compose.yml file.
 - use port 3030 for ReactJS application, the port calling Web Api is using 5269 in .env file, so if change port of Web Api, need to change config at .env file and then re-buiid ReactJS applciation for communicating between ReactJS application and Web Api.
 ### Web API Swagger Back-End
