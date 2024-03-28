@@ -1,4 +1,4 @@
-# Vegefoods
+# Vegefoods Docker
 This is demo web application that is published an Vegefoods Web Application by using docker on hub docker.
 ## Hub Docker
 Vegefoods Web application is published to hub docker and can be used images by command: 
