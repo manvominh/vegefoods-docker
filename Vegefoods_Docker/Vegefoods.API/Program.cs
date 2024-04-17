@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Text;
 using Vegefoods.API.Extensions;
 using Vegefoods.Application.Extensions;
 using Vegefoods.Persistence.Extensions;
+using Vegefoods.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,9 +25,27 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(policy =>
 {
 	policy.AddPolicy("CorsPolicy", opt => opt
-		.AllowAnyOrigin()
+		//.AllowAnyOrigin()
+		.WithOrigins("http://localhost:3000", "http://localhost:4200")
 		.AllowAnyHeader()
 		.AllowAnyMethod());
+});
+builder.Services.AddAuthentication(o =>
+{
+	o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+	o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+	o.RequireHttpsMetadata = false;
+	o.SaveToken = true;
+	o.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidateIssuerSigningKey = true,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtAuthenticationManagerService.JWT_SECURITY_KEY)),
+		ValidateIssuer = false,
+		ValidateAudience = false,
+		ValidateLifetime = true,
+	};
 });
 
 var _loggrer = new LoggerConfiguration()
@@ -43,6 +65,7 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseErrorHandler();
