@@ -24,6 +24,7 @@ services:
        - backend
     ports:
         - 5296:8080
+        - 7090:8081
     depends_on:
         - vegefoodsdb
     environment:
