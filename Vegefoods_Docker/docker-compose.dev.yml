@@ -2,7 +2,6 @@ version: '3.4'
 
 networks:
   backend:
-  frontend:
 
 services:
   vegefoodsdb:
@@ -23,7 +22,6 @@ services:
       dockerfile: Vegefoods.API/Dockerfile
     networks:
        - backend
-       - frontend
     ports:
         - 5296:8080
         - 7090:8081
@@ -33,4 +31,3 @@ services:
         - DB_HOST=vegefoodsdb
         - DB_NAME=vegefoods
         - DB_SA_PASSWORD=1qazZAQ!
-
