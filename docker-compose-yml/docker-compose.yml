@@ -2,6 +2,7 @@ version: '3.4'
 
 networks:
   backend:
+  frontend:
 
 services:
   vegefoodsdb:
@@ -27,3 +28,17 @@ services:
         - DB_HOST=vegefoodsdb
         - DB_NAME=vegefoods
         - DB_SA_PASSWORD=1qazZAQ!
+  reactui:
+    container_name: react-web-ui
+    image: vominhman/vegefoods.reactui    
+    ports:
+      - 3000:80
+    networks:
+      - frontend
+  angularui:
+    container_name: angular-web-ui
+    image: vominhman/vegefoods.angularui
+    ports:
+      - 4200:80
+    networks:
+      - frontend
