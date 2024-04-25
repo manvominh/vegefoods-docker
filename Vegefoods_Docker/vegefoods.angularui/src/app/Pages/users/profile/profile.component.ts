@@ -56,9 +56,9 @@ export class ProfileComponent implements OnInit{
   updateUser() {
     
     this.isLoading = true;
-    //if (this.userForm.valid) { 
-      console.log(this.userId);
-      console.log('updating')
+    if (this.userForm.valid) { 
+      //console.log(this.userId);
+      //console.log('updating')
        this.userService.updateUser(this.userForm.value, this.userId).subscribe({
         next: (res: any) => {
           this.isLoading = false;
@@ -69,7 +69,7 @@ export class ProfileComponent implements OnInit{
         }
       });      
       
-    // }    
+    }    
   }
 
   cancelUpdate(){
