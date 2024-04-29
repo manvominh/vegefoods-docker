@@ -6,7 +6,7 @@ networks:
 
 services:
   vegefoodsdb:
-    container_name: vegefoods-db
+    container_name: vegefoodsdb
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
         - ACCEPT_EULA=Y
