@@ -17,7 +17,7 @@ services:
         - 8001:1433
   vegefoods.api:
     container_name: vegefoods-api
-    image: vominhman/vegefoodsapi
+    image: vominhman/vegefoods.api:v1.0.0
     networks:
        - backend
     ports:
@@ -30,14 +30,14 @@ services:
         - DB_SA_PASSWORD=1qazZAQ!
   reactui:
     container_name: react-web-ui
-    image: vominhman/vegefoods.reactui    
+    image: vominhman/vegefoods.reactui:v1.0.0   
     ports:
       - 3000:80
     networks:
       - frontend
   angularui:
     container_name: angular-web-ui
-    image: vominhman/vegefoods.angularui
+    image: vominhman/vegefoods.angularui:v1.0.0
     ports:
       - 4200:80
     networks:
