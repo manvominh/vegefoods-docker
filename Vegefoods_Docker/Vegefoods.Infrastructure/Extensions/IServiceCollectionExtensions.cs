@@ -34,8 +34,8 @@ namespace Vegefoods.Persistence.Extensions
 
 		public static void AddDbContext(this IServiceCollection services, IConfiguration configuration, string dbHost, string dbName, string dbPassword)
 		{
-			//var connectionString = string.Format(configuration.GetConnectionString("DefaultConnection"), dbHost, dbName, dbPassword);
-			var connectionString = configuration.GetConnectionString("DefaultConnection");
+			var connectionString = string.Format(configuration.GetConnectionString("DefaultConnection"), dbHost, dbName, dbPassword);
+			//var connectionString = configuration.GetConnectionString("DefaultConnection");
 
 			services.AddDbContext<ApplicationDbContext>(options =>
 			   options.UseSqlServer(connectionString,
